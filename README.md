@@ -16,11 +16,40 @@ https://sepolia.etherscan.io/verifyContract-solc?a=0xe36433FD78dD32d61d283aDA82B
 
 ## Functions
 
-- '**placeBid()**':  Allows users to place a new bid. The bid must be at least 5% higher than the current highest bid.
-   The function also handles refunding the previous highest bidder and extends the auction time if a bid is placed in the last 10 minutes.
+- '**placeBid()**'
+Description: Allows users to place a bid in the auction. The bid must be at least 5% higher than the highest bid. If a bid is placed in the last 10 minutes, the auction time is extended by an additional 10 minutes.
+
+Parameters:
+
+msg.value: The bid value in wei (the amount sent with the transaction).
+
+Modifiers:
+
+onlyBeforeEnd: Only allows users to place a bid before the auction ends.
+
+Return:
+
+Does not return a value. Only emits the NewBid event.
+
+Events:
+
+NewBid: Emitted when a new valid bid is placed.
     
-- '**endAuction()**': Can only be called by the owner after the auction time ends.
-   It finalizes the auction, preventing further bids, and emits an event with the winner's address and winning bid.
+- '**endAuction()**': 
+    - Description: Ends the auction. Once it ends, no more bids can be placed. This function can only be called by the contract owner after the auction time has expired.
+
+    - **Parameters**: None
+
+    - **Modifiers**
+
+       onlyOwner: Can only be called by the contract owner.
+
+       onlyAfterEnd: Can only be called after the auction has ended.
+
+    - **Return**: None. Emits the AuctionEnded event.
+
+    - **Events**:
+        AuctionEnded: Emitted when the auction ends. Includes the winner's address and the winning bid amount.
   
 - '**withdraw()**': Allows users who did not win to withdraw their refundable deposits safely.
   
