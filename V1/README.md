@@ -45,6 +45,6 @@ This enables users to get back funds from earlier bids during the auction.
 - This project is licensed under the MIT License 
 
 
----
+-------
 
 Made by: Ivana Papaño
