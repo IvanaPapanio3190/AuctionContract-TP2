@@ -22,19 +22,19 @@ https://sepolia.etherscan.io/verifyContract-solc?a=0x49f4a824460C014818606EAAa01
 
     - **Parameters**:
 
-        msg.value: The bid value in wei (the amount sent with the transaction).
+            msg.value: The bid value in wei (the amount sent with the transaction).
 
     - **Modifiers**:
 
-        onlyBeforeEnd: Only allows users to place a bid before the auction ends.
+            onlyBeforeEnd: Only allows users to place a bid before the auction ends.
 
     - **Return**:
 
-        Does not return a value. Only emits the NewBid event.
+            Does not return a value. Only emits the NewBid event.
 
     - **Events**:
 
-        NewBid: Emitted when a new valid bid is placed.
+            NewBid: Emitted when a new valid bid is placed.
 
       
     
@@ -46,14 +46,15 @@ https://sepolia.etherscan.io/verifyContract-solc?a=0x49f4a824460C014818606EAAa01
 
     - **Modifiers**
 
-       onlyOwner: Can only be called by the contract owner.
-
-       onlyAfterEnd: Can only be called after the auction has ended.
+            onlyOwner: Can only be called by the contract owner.
+      
+            onlyAfterEnd: Can only be called after the auction has ended.
 
     - **Return**: None. Emits the AuctionEnded event.
 
     - **Events**:
-        AuctionEnded: Emitted when the auction ends. Includes the winner's address and the winning bid amount.
+
+            AuctionEnded: Emitted when the auction ends. Includes the winner's address and the winning bid amount.
       
   
 - '**withdraw()**'
@@ -66,7 +67,7 @@ https://sepolia.etherscan.io/verifyContract-solc?a=0x49f4a824460C014818606EAAa01
       
     - **Return**:
 
-        Returns no value. The transaction transfers the amount to the user's address.
+            Returns no value. The transaction transfers the amount to the user's address.
 
     - **Events**: None
 
@@ -79,7 +80,8 @@ https://sepolia.etherscan.io/verifyContract-solc?a=0x49f4a824460C014818606EAAa01
     - **Modifiers**: None
 
     - **Return**:
-        Returns no value. The transaction transfers the refunded amount to the bidder.
+      
+            Returns no value. The transaction transfers the refunded amount to the bidder.
 
     - **Events**: None
  
@@ -91,17 +93,47 @@ https://sepolia.etherscan.io/verifyContract-solc?a=0x49f4a824460C014818606EAAa01
 
     - **Modifiers**:
 
-        onlyAfterEnd: Can only be called after the auction ends.
+            onlyAfterEnd: Can only be called after the auction ends.
 
     - **Return**:
 
-        address: Winning bidder's address.
+            address: Winning bidder's address.
 
-        uint: Winning bid amount.
+            uint: Winning bid amount.
 
     - **Events**: None
 
-- '**getAllBids(address bidder)**': Returns a list of all bids placed by a specific bidder address.
+- '**getAllBids(address bidder)**'
+
+    - **Description**: Returns a list of all bids placed by a specific bidder. This is useful for tracking a participant's bidding history and validating partial refunds.
+    - **Parameters**:
+
+            address bidder: The address of the bidder whose bidding history you want to view.
+
+    - **Modifiers**: None
+
+    - **Return**:
+
+            uint[]: An array of all bids placed by the bidder.
+
+    - **Events**: None
+      
+ 
+ - '**getBidderCount()**'
+   
+    - **Description**: Returns the total number of bidders who have placed at least one bid in the auction.
+
+    - **Parameters**: None
+
+    - **Modifiers**: None
+
+    - **Return**:
+
+             uint: The total number of bidders.
+
+    - **Events**: None
+ 
+      
   
 
 ## Events
