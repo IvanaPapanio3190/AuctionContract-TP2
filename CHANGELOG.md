@@ -9,7 +9,7 @@
 -  **Partial Refunds:** Added 'withdrawPartial()' allowing users to recover all previous bids except their latest.
 -  **Emergency Withdraw:** Introduced 'emergencyWithdraw()' for the contract owner to recover all funds in case of emergency.
 -  **Improved Withdrawals:** Enhanced 'withdraw()' logic to handle pending returns more securely after auction ends.
--  **New Helper Functions:** Added 'getBidderCount()' and improved `getAllBids()` to allow better tracking of participant history.
+-  **New Helper Functions:** Added 'getBidderCount()' and improved 'getAllBids()' to allow better tracking of participant history.
 
 
 ### Documentation
